@@ -4,56 +4,534 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-		crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-		integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<title>Thanzia Portfolio</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+	<style>
+		body {
+			background-color: #121212;
+			color: #fff;
+			margin: 0;
+		}
+
+		section {
+			padding-top: 80px;
+			padding-bottom: 80px;
+		}
+
+
+		.hamburger-container {
+			position: fixed;
+			top: 20px;
+			right: 20px;
+			z-index: 9999;
+		}
+
+		.hamburger-icon {
+			width: 35px;
+			height: 25px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			cursor: pointer;
+		}
+
+		.hamburger-icon span {
+			display: block;
+			height: 4px;
+			border-radius: 2px;
+			background-color: yellowgreen;
+		}
+
+		.dropdown-menu {
+			background-color: #1e1e1e;
+			padding: 10px;
+			display: none;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.dropdown.show .dropdown-menu {
+			display: flex;
+		}
+
+		.dropdown-item {
+			background-color: transparent;
+			color: #fff;
+			border: 2px solid yellowgreen;
+			border-radius: 50px;
+			padding: 8px 20px;
+			margin: 5px 0;
+			text-align: center;
+			transition: all 0.3s ease;
+			white-space: nowrap;
+		}
+
+		.dropdown-item:hover {
+			background-color: #00FFC6;
+			color: #000;
+		}
+
+		.card-skill {
+			background-color: #1e1e1e;
+			border: none;
+			color: #fff;
+			padding: 20px;
+			border-radius: 12px;
+			text-align: center;
+			box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+			transition: transform 0.3s ease;
+		}
+
+		.card-skill:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+		}
+
+		.card-skill i {
+			font-size: 2.5rem;
+			margin-bottom: 10px;
+		}
+
+		.progress {
+			height: 8px;
+			width: 50%;
+			margin: 0 auto;
+			border-radius: 5px;
+			background-color: #333;
+		}
+
+		.progress-bar {
+			border-radius: 5px;
+		}
+
+
+
+		#services {
+			background-color: #000;
+			/* Pure black section background */
+			color: #fff;
+		}
+
+		.service-card {
+			background-color: #0f0f0f;
+			/* Slightly lighter black inside card */
+			color: #fff;
+			border: 2px solid #ADFF2F;
+			/* Yellow-green border highlight */
+			text-align: center;
+			border-radius: 12px;
+			box-shadow: 0 0 15px rgba(173, 255, 47, 0.2);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.service-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 0 20px rgba(173, 255, 47, 0.4);
+		}
+
+		.service-icon {
+			font-size: 2.5rem;
+			margin-bottom: 10px;
+		}
+
+		.card-title,
+		.card-text {
+			color: #fff;
+			/* Ensure white text inside card */
+		}
+
+		#projects {
+			background-color: #000;
+			/* Dark background */
+			color: #fff;
+		}
+
+		.project-card {
+			background-color: #1e1e1e;
+			color: #fff;
+			border-radius: 12px;
+			border: 2px solid #ADFF2F;
+			/* Yellow-green border */
+			box-shadow: 0 0 15px rgba(173, 255, 47, 0.1);
+			padding: 20px;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			max-width: 85%;
+			/* Limit width */
+			margin: 0 auto;
+		}
+
+		.project-card .card-body {
+			text-align: center;
+		}
+
+		.project-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 0 25px rgba(173, 255, 47, 0.3);
+		}
+
+		.btn-view-demo {
+			background-color: #ADFF2F;
+			color: #000;
+			font-weight: bold;
+			border: none;
+			border-radius: 50px;
+			padding: 8px 20px;
+			transition: background-color 0.3s ease;
+			text-decoration: none;
+		}
+
+		.btn-view-demo:hover {
+			background-color: #9ACD32;
+			color: #000;
+		}
+
+
+		.rounded-photo-wrapper {
+			width: 270px;
+			height: 270px;
+			border-radius: 50%;
+			background-color: yellowgreen;
+			/* highlight color */
+			/* highlight color */
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			box-shadow: 0 0 15px yellowgreen;
+		}
+
+		.rounded-photo {
+			width: 250px;
+			height: 250px;
+			border-radius: 50%;
+			object-fit: cover;
+		}
+
+		.btn-download-resume {
+			background-color: #ADFF2F;
+			/* Yellow-green */
+			color: #000;
+			/* Black text */
+			font-weight: bold;
+			border: none;
+			border-radius: 50px;
+			padding: 10px 25px;
+			font-size: 16px;
+			transition: background-color 0.3s ease, transform 0.2s ease;
+		}
+
+		.btn-download-resume:hover {
+			background-color: #9ACD32;
+			/* Slightly darker green on hover */
+			transform: scale(1.05);
+			text-decoration: none;
+			color: #000;
+		}
+
+
+
+		.btn-outline-light:hover {
+			background-color: #ADFF2F;
+			color: #000;
+			border-color: #ADFF2F;
+		}
+	</style>
 </head>
 
-<body class="bg-dark">
-	<div class="navbar navbar-dark bg-dark">
-		<div class="container">
-			<div class="navbar-brand">Thanzia</div>
-			<ul class="nav justify-content-end">
-				<li class="nav-item"><a href="./index.html" class="nav-link active text-white">Home</a></li>
-				<li class="nav-item"><a href="./projects.html" class="nav-link active text-white">Projects</a></li>
-				<li class="nav-item"><a href="./contacts.html" class="nav-link active text-white">Contacts</a></li>
-				<li class="nav-item"><a href="./about.html" class="nav-link active text-white">About</a></li>
-			</ul>
-		</div>
+<body>
 
+	<!-- Hamburger Dropdown -->
+
+	<div class="dropdown hamburger-container">
+		<button class="btn p-0" type="button" id="hamburgerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+			<div class="hamburger-icon">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</button>
+		<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="hamburgerDropdown">
+			<li><a class="dropdown-item" href="#home">Home</a></li>
+			<li><a class="dropdown-item" href="#about">About</a></li>
+			<li><a class="dropdown-item" href="#skills">Skills</a></li>
+			<li><a class="dropdown-item" href="#services">Services</a></li>
+			<li><a class="dropdown-item" href="#projects">Projects</a></li>
+			<li><a class="dropdown-item" href="#contact">Contact</a></li>
+		</ul>
 	</div>
 
+	<!-- Home Section -->
 
-	<div class="row" style="height: 100vh;">
-		<div class="col d-flex w-100">
+	<section id="home" class="d-flex flex-column justify-content-center align-items-center text-center">
+		<h1 class="" style="color: beige;">Hi, I'm <span style="color: #00FFC6;">Thanzia Abdul Salam</span></h1>
+		<h5 class="">Python Django Developer | Backend Developer</h5>
+	</section>
 
-			<div class="">
-				<img src="./images/pexels-photo-3372787.jpeg" alt="" style="height: 100vh; width: 500px;">
+	<!-- About Section -->
+
+	<section id="about" class="d-flex align-items-center justify-content-center">
+		<div class="container text-center">
+			<!-- Centered Photo -->
+			<div class="rounded-photo-wrapper mx-auto mb-4">
+				<img src="./images/thanzia_photo.jpg" class="rounded-photo" alt="My Photo">
 			</div>
-			<div class="ms-5 my-auto" style="width: 400px;">
-				<h1 class="text-white">My</h1>
-				<h1 class="text-white">Portfolio</h1>
-				<p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate vero natus
-					vitae quae libero perferendis!</p>
-				<div>
-					<div>
-						<a href="#" class="btn btn-light rounded-0">Explore now</a>
-						<a href="" class="text-white text-decoration-none"><i
-								class="fa-solid fa-circle-play fa-2xl text-white mx-3"></i>Play here</a>
+
+			<!-- Centered Heading and Text -->
+			<h2 class="mb-3" style="color: yellowgreen;">About Me</h2>
+			<p class="mb-3">Hi, I'm <span style="color: #00FFC6;">Thanzia Abdul Salam</span>, a passionate Python Django
+				Developer with hands on experience
+				in building robust web applications. I specialize in creating efficient APIs and
+				scalable web applications using Django and Django Rest Framework (DRF). I enjoy solving complex problems
+				and
+				creating user-friendly interfaces that enhance the overall user experience.
+				My goal is to deliver high-quality code that meets the needs of users and businesses alike.
+			</p>
+			</p>
+			<a href="./resume.pdf" download class="btn btn-download-resume">
+				<i class="fas fa-download me-2"></i>Download Resume
+			</a>
+
+
+		</div>
+	</section>
+
+
+	<!-- Skills Section -->
+
+	<section id="skills" class="py-5">
+		<div class="container text-center">
+			<h2 class="mb-5" style="color: yellowgreen;">Skills</h2>
+			<div class="row row-cols-1 row-cols-md-2 g-4">
+
+				<!-- HTML -->
+				<div class="col">
+					<div class="card card-skill">
+						<i class="fab fa-html5" style="color:#E34F26;"></i>
+						<h5 class="mt-2">HTML</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 90%; background-color: #E34F26;"></div>
+						</div>
 					</div>
 				</div>
+
+				<!-- CSS -->
+				<div class="col">
+					<div class="card card-skill">
+						<i class="fab fa-css3-alt" style="color:#1572B6;"></i>
+						<h5 class="mt-2">CSS</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 80%; background-color: #1572B6;"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- JavaScript -->
+				<div class="col">
+					<div class="card card-skill">
+						<i class="fab fa-js" style="color:#F7DF1E;"></i>
+						<h5 class="mt-2">JavaScript</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 80%; background-color: #F7DF1E;"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- React -->
+				<div class="col">
+					<div class="card card-skill">
+						<i class="fab fa-react" style="color:#61DAFB;"></i>
+						<h5 class="mt-2">React</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 75%; background-color: #61DAFB;"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Django -->
+				<div class="col">
+					<div class="card card-skill">
+						<i class="fas fa-leaf" style="color:#4bd6a1;"></i>
+						<h5 class="mt-2">Django</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 85%; background-color: #4bd6a1;"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Git -->
+				<div class="col">
+					<div class="card card-skill">
+						<i class="fab fa-git-alt" style="color:#F05032;"></i>
+						<h5 class="mt-2">Git</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 85%; background-color: #F05032;"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Bootstrap -->
+				<div class="col">
+					<div class="card card-skill">
+						<i class="fab fa-bootstrap" style="color:#7952B3;"></i>
+						<h5 class="mt-2">Bootstrap</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 85%; background-color: #7952B3;"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- APIs -->
+				<div class="col">
+					<div class="card card-skill">
+						<i class="fas fa-plug" style="color:#ff6f00;"></i>
+						<h5 class="mt-2">APIs & DRF</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 85%; background-color: #ff6f00;"></div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+	<!-- Services Section -->
+	<section id="services" class="py-5">
+		<div class="container text-center">
+			<h2 class="mb-5" style="color: yellowgreen;">Services</h2>
+			<div class="row row-cols-1 row-cols-md-3 g-4">
+
+				<!-- Web Development -->
+				<div class="col">
+					<div class="card service-card h-100">
+						<div class="card-body">
+							<i class="fas fa-code service-icon" style="color:#00bcd4;"></i> <!-- Cyan -->
+							<h5 class="card-title mt-3">Web Development</h5>
+							<p class="card-text">
+								I build responsive and high-performance websites using modern frameworks.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- UI/UX Design -->
+				<div class="col">
+					<div class="card service-card h-100">
+						<div class="card-body">
+							<i class="fas fa-pencil-ruler service-icon" style="color:#ff4081;"></i> <!-- Pink -->
+							<h5 class="card-title mt-3">UI/UX Design</h5>
+							<p class="card-text">
+								Crafting intuitive interfaces and experiences that users love.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- API Integration -->
+				<div class="col">
+					<div class="card service-card h-100">
+						<div class="card-body">
+							<i class="fas fa-plug service-icon" style="color:#ff9800;"></i> <!-- Orange -->
+							<h5 class="card-title mt-3">API Integration</h5>
+							<p class="card-text">
+								Connecting frontend and backend systems for seamless functionality.
+							</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<!-- Projects Section -->
+	<section id="projects" class="py-5">
+		<div class="container text-center">
+			<h2 class="mb-3" style="color: yellowgreen;">My Projects</h2>
+			<p class="mb-5">Explore my projects that showcase my skills and creativity.</p>
+
+			<div class="row row-cols-1 g-4">
+
+				<!-- Project 1 -->
+				<div class="col">
+					<div class="card project-card">
+						<div class="card-body">
+							<h5 class="card-title" style="color: yellowgreen;">Craftale - Personalized Craft Shop
+								Website</h5>
+							<p class="card-text">A fully responsive e-commerce platform for handcrafted gifts and
+								hampers, built with Django, Tailwind CSS, and SQLite.
+								Features user authentication, cart/wishlist, product detail pages, and secure checkout.
+							</p>
+							<a href="https://github.com/yourusername/portfolio" target="_blank"
+								class="btn btn-view-demo">
+								<i class="fas fa-external-link-alt me-2"></i>View Demo
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Project 2 -->
+				<div class="col">
+					<div class="card project-card">
+						<div class="card-body">
+							<h5 class="card-title" style="color: yellowgreen;">Waynsafar - Travel Planner App</h5>
+							<p class="card-text">A full-stack web app for planning and managing trips. Users can create
+								trips, invite others, add day-by-day itineraries, and view location maps and real-time
+								weather using external APIs.
+								Built with Django REST Framework and integrated with Google Maps and OpenWeather APIs.
+							</p>
+
+						</div>
+					</div>
+				</div>
+
+				<!-- Add more projects similarly -->
+				<div class="col">
+					<div class="card project-card">
+						<div class="card-body">
+							<h5 class="card-title" style="color: yellowgreen;">Portfolio Website</h5>
+							<p class="card-text">A personal portfolio website showcasing my projects, skills, and
+								experience.
+								Built with HTML, CSS, and JavaScript, featuring a responsive design and smooth scrolling
+								effects.</p>
+							<a href="https://your-deployed-site.com" target="_blank" class="btn btn-view-demo">
+								<i class="fas fa-external-link-alt me-2"></i>View Demo
+							</a>
+						</div>
+					</div>
+
+				</div>
+
+
 			</div>
 
+	</section>
 
+	<!-- Contact Section -->
+	<section id="contact" class="text-center">
+		<div class="container">
+			<h2 style="color: yellowgreen;"> Get in Touch</h2>
+			<div class="mt-3">
+				<a href="https://www.linkedin.com/in/thanzia-abdul-salam-671478138"
+					class="btn btn-outline-light me-2"><i class="fab fa-linkedin"></i> LinkedIn</a>
+				<a href="https://github.com/Thanzia" class="btn btn-outline-light me-2"><i class="fab fa-github"></i>
+					GitHub</a>
+				<a href="mailto:thanzia123@gmail.com" class="btn btn-outline-light"><i class="fas fa-envelope"></i>
+					Email</a>
+			</div>
 		</div>
+	</section>
 
-	</div>
+	<!-- Footer -->
+	<footer class="text-center py-3 bg-black text-white">
+		&copy; 2025 Thanzia Abdul Salam. All Rights Reserved. <br>
+		Designed and Developed by <span style="color: yellowgreen;">Thanzia Abdul Salam</span>
+	</footer>
+
 </body>
 
 </html>
