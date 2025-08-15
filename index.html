@@ -284,7 +284,8 @@
 			<p class="mb-3">Hi, I'm <span style="color: #00FFC6;">Thanzia Abdul Salam</span>, a passionate Python Django
 				Developer with hands on experience
 				in building robust web applications. I specialize in creating efficient APIs and
-				scalable web applications using Django and Django Rest Framework (DRF). I enjoy solving complex problems
+				scalable web applications using Django and Django Rest Framework (DRF) with JWT-based authentication. I
+				enjoy solving complex problems
 				and
 				creating user-friendly interfaces that enhance the overall user experience.
 				My goal is to deliver high-quality code that meets the needs of users and businesses alike.
@@ -304,7 +305,19 @@
 	<section id="skills" class="py-5">
 		<div class="container text-center">
 			<h2 class="mb-5" style="color: yellowgreen;">Skills</h2>
-			<div class="row row-cols-1 row-cols-md-2 g-4">
+			<div class="row row-cols-1 row-cols-md-3 g-4">
+
+				<!-- python -->
+				<div class="col">
+					<div class="card card-skill text-center">
+						<i class="fab fa-python" style="color:#3776AB;"></i>
+						<h5 class="mt-2">Python</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 85%; background-color: #3776AB;"></div>
+						</div>
+					</div>
+				</div>
+
 
 				<!-- HTML -->
 				<div class="col">
@@ -394,9 +407,46 @@
 					</div>
 				</div>
 
+				<!-- JWT -->
+				<div class="col">
+					<div class="card card-skill text-center">
+						<i class="fas fa-key" style="color:#c2185b;"></i>
+						<h5 class="mt-2">JWT Authentication</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 80%; background-color: #c2185b;"></div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- MySQL -->
+				<div class="col">
+					<div class="card card-skill text-center">
+						<i class="fas fa-database" style="color:#00758f;"></i>
+						<h5 class="mt-2">MySQL</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 70%; background-color: #00758f;"></div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- Vscode -->
+				<div class="col">
+					<div class="card card-skill text-center">
+						<i class="fas fa-code" style="color:#007ACC;"></i>
+						<h5 class="mt-2">VS Code</h5>
+						<div class="progress mt-3">
+							<div class="progress-bar" style="width: 90%; background-color: #007ACC;"></div>
+						</div>
+					</div>
+				</div>
+
+
 			</div>
 		</div>
 	</section>
+
 
 
 	<!-- Services Section -->
@@ -412,37 +462,44 @@
 							<i class="fas fa-code service-icon" style="color:#00bcd4;"></i> <!-- Cyan -->
 							<h5 class="card-title mt-3">Web Development</h5>
 							<p class="card-text">
-								I build responsive and high-performance websites using modern frameworks.
+								I create responsive, user-friendly websites using HTML, CSS, JavaScript, and Bootstrap.
+								I focus on clean UI, accessibility, and cross-browser compatibility.
+
 							</p>
 						</div>
 					</div>
 				</div>
 
-				<!-- UI/UX Design -->
+				<!-- Secure API Development -->
 				<div class="col">
 					<div class="card service-card h-100">
 						<div class="card-body">
-							<i class="fas fa-pencil-ruler service-icon" style="color:#ff4081;"></i> <!-- Pink -->
-							<h5 class="card-title mt-3">UI/UX Design</h5>
+							<i class="fas fa-shield-alt service-icon" style="color:#f39c12;"></i> <!-- Orange-yellow -->
+							<h5 class="card-title mt-3">Secure API Development</h5>
 							<p class="card-text">
-								Crafting intuitive interfaces and experiences that users love.
+								I build RESTful APIs using Django REST Framework and secure them with JWT
+								authentication, ensuring safe access to user data and backend services.
 							</p>
 						</div>
 					</div>
 				</div>
 
-				<!-- API Integration -->
+
+
+				<!-- Deployment & Hosting -->
 				<div class="col">
 					<div class="card service-card h-100">
 						<div class="card-body">
-							<i class="fas fa-plug service-icon" style="color:#ff9800;"></i> <!-- Orange -->
-							<h5 class="card-title mt-3">API Integration</h5>
+							<i class="fas fa-cloud-upload-alt service-icon" style="color:#00C853;"></i> <!-- Green -->
+							<h5 class="card-title mt-3">Deployment & Hosting</h5>
 							<p class="card-text">
-								Connecting frontend and backend systems for seamless functionality.
+								I deploy websites and projects using GitHub Pages and manage version control with Git.
+								Currently exploring other platforms like Netlify and Vercel.
 							</p>
 						</div>
 					</div>
 				</div>
+
 
 			</div>
 		</div>
@@ -466,7 +523,7 @@
 								hampers, built with Django, Tailwind CSS, and SQLite.
 								Features user authentication, cart/wishlist, product detail pages, and secure checkout.
 							</p>
-							<a href="https://github.com/yourusername/portfolio" target="_blank"
+							<a href="https://mycraftale-ecommerce.onrender.com" target="_blank"
 								class="btn btn-view-demo">
 								<i class="fas fa-external-link-alt me-2"></i>View Demo
 							</a>
@@ -498,9 +555,7 @@
 								experience.
 								Built with HTML, CSS, and JavaScript, featuring a responsive design and smooth scrolling
 								effects.</p>
-							<a href="https://your-deployed-site.com" target="_blank" class="btn btn-view-demo">
-								<i class="fas fa-external-link-alt me-2"></i>View Demo
-							</a>
+							
 						</div>
 					</div>
 
